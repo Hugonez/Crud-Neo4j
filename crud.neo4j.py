@@ -28,7 +28,7 @@ def create_user(session, name, age):
 
 
 # Função para listar todos os usuários no banco de dados
-def list_people(session):
+def list_user(session):
     result = session.run("MATCH (p:User) RETURN p.name AS name, p.age AS age")
     people = result.values()
     if people:
@@ -78,7 +78,7 @@ def create_friendship(session, name1, name2):
         print("Um ou ambos os usuários não foram encontrados.")
 
 # Função para deletar todos usuários
-def delete_all_people(session):
+def delete_all_user(session):
     session.run("MATCH (p:User) DETACH DELETE p")
     print("Todas os usuários deletados com sucesso.")
 
